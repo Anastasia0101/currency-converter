@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CurrencyEnum } from 'src/app/enums/CurrencyEnum';
 
 @Component({
   selector: 'app-form',
@@ -13,6 +14,8 @@ export class FormComponent {
     takeAmount: [null, [Validators.required]],
     takeCurrencyCode: [null, [Validators.required]]
   });
+
+  currencies = Object.values(CurrencyEnum);
 
 
   constructor(private formBuilder: FormBuilder) { }

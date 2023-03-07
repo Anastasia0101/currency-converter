@@ -1,7 +1,11 @@
 <form [formGroup]="formGroup" (ngSubmit)="onFormSubmit()">
-  <app-input></app-input>
-  <app-select></app-select>
-  <app-input></app-input>
-  <app-select></app-select>
+  <input type="text" formControlName="giveAmount" />
+  <select name="" id="" formControlName="giveCurrencyCode">
+    <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+  </select>
+  <input type="text" formControlName="takeAmount" />
+  <select name="" id="" formControlName="takeCurrencyCode">
+    <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+  </select>
   <button type="submit">Click</button>
 </form>
