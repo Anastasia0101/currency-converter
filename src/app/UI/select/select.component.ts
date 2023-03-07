@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CurrencyEnum } from 'src/app/models/enums/CurrencyEnum';
 
 @Component({
   selector: 'app-select',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./select.component.css']
 })
 export class SelectComponent {
-
+  currencies = Object.values(CurrencyEnum);
 }
