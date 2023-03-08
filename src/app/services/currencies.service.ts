@@ -11,7 +11,7 @@ export class CurrenciesService {
     wantedCurrency: string,
     inputedCurrency: string,
     inputedAmount: number
-  ): Observable<CurrencyResponseApi> {
+  ): Observable<number> {
     const url = 'https://api.apilayer.com/exchangerates_data/convert';
     const requestParams = `?to=${wantedCurrency}&from=${inputedCurrency}&amount=${inputedAmount}`;
     const options = {
@@ -20,7 +20,8 @@ export class CurrenciesService {
       }
     };
     return this.httpClient.get(url + requestParams, options).pipe(
-      map((result) => result as CurrencyResponseApi)
+      map((response) => response as CurrencyResponseApi),
+      map(result => result.result)
     );
   }
 }

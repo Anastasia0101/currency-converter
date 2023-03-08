@@ -10,10 +10,10 @@ import { CurrenciesService } from 'src/app/services/currencies.service';
 })
 export class FormComponent {
   formGroup: FormGroup = this.formBuilder.group({
-    giveAmount: [null, [Validators.required]],
-    giveCurrencyCode: [null, [Validators.required]],
-    takeAmount: [0, [Validators.required]],
-    takeCurrencyCode: [null, [Validators.required]]
+    giveAmount: ['', [Validators.required ]],
+    giveCurrencyCode: ['USD', [Validators.required]],
+    takeAmount: ['', [Validators.required]],
+    takeCurrencyCode: ['UAH', [Validators.required]]
   });
 
   currencies = Object.values(CurrencyEnum);
@@ -24,15 +24,17 @@ export class FormComponent {
   ) { }
 
   onControlChanged(prefixInputedControl: string): void {
-    console.log('on change control')
+    console.log('on change control');
+    if (this.formGroup.get(`${prefixInputedControl}Amount`)?.invalid) return;
+
     const prefixWantedControl = prefixInputedControl === 'give' ? 'take' : 'give';
 
     const inputedAmount = this.formGroup.get(`${prefixInputedControl}Amount`)!.value;
     const wantedCurrencyCode = this.formGroup.get(`${prefixWantedControl}CurrencyCode`)!.value;
     const inputedCurrencyCode = this.formGroup.get(`${prefixInputedControl}CurrencyCode`)!.value;
-    
+
     this.currenciesService.convertCurrencies(wantedCurrencyCode, inputedCurrencyCode, inputedAmount).subscribe(data => {
-      this.formGroup.get(`${prefixWantedControl}Amount`)!.setValue(data.result);
+      this.formGroup.get(`${prefixWantedControl}Amount`)!.setValue(data);
     });
   }
 }

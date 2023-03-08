@@ -9,13 +9,15 @@ import { AppComponent } from './app.component';
 import { InputComponent } from './components/UI/input/input.component';
 import { SelectComponent } from './components/UI/select/select.component';
 import { FormComponent } from './components/form/form.component';
+import { HeaderComponent } from './components/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     InputComponent,
     SelectComponent,
-    FormComponent
+    FormComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,

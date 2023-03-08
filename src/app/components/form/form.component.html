@@ -1,9 +1,9 @@
 <form [formGroup]="formGroup">
-  <input type="text" formControlName="giveAmount" (change)="onControlChanged('give')"/>
+  <input type="number" min="0" step="any" formControlName="giveAmount" (input)="onControlChanged('give')"/>
   <select name="" id="" formControlName="giveCurrencyCode" (change)="onControlChanged('take')">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
-  <input type="text" formControlName="takeAmount" (change)="onControlChanged('take')"/>
+  <input type="number" formControlName="takeAmount" (input)="onControlChanged('take')"/>
   <select name="" id="" formControlName="takeCurrencyCode" (change)="onControlChanged('take')">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
