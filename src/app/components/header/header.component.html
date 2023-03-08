@@ -1,2 +1,5 @@
-<p>{{costOfDollar$ | async}}</p>
-<p>{{costOfEuro$ | async}}</p>
+<header class="header">
+  <p class="header__text">USD {{ costOfDollar$ | async }}</p>
+  <p class="header__text">EUR  {{ costOfEuro$ | async }}</p>
+</header>
+
