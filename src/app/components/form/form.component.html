@@ -1,10 +1,10 @@
 <form [formGroup]="formGroup">
-  <input type="text" formControlName="giveAmount" />
-  <select name="" id="" formControlName="giveCurrencyCode">
+  <input type="text" formControlName="giveAmount" (change)="onControlChanged('give')"/>
+  <select name="" id="" formControlName="giveCurrencyCode" (change)="onControlChanged('take')">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
-  <input type="text" formControlName="takeAmount" />
-  <select name="" id="" formControlName="takeCurrencyCode">
+  <input type="text" formControlName="takeAmount" (change)="onControlChanged('take')"/>
+  <select name="" id="" formControlName="takeCurrencyCode" (change)="onControlChanged('take')">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
 </form>
