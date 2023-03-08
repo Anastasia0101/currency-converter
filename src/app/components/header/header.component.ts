@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { CurrencyEnum } from 'src/app/enums/CurrencyEnum';
+import { Observable } from 'rxjs';
+import { CurrencyEnum } from 'src/app/enums/currency-enum';
 import { CurrenciesService } from 'src/app/services/currencies.service';
 
 @Component({

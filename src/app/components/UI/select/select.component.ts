@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { CurrencyEnum } from 'src/app/enums/CurrencyEnum';
+import { CurrencyEnum } from 'src/app/enums/currency-enum';
 
 @Component({
   selector: 'app-select',
