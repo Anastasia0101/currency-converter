@@ -42,9 +42,11 @@ export class FormComponent {
 
   onControlChanged(prefixInputedControl: string): void {
     if (this.formGroup.get(`${prefixInputedControl}Amount`)?.invalid) return;
-
     const prefixWantedControl = prefixInputedControl === this.prefixesEnum.GIVE ? this.prefixesEnum.TAKE : this.prefixesEnum.GIVE;
+    this.convertCurrency(prefixInputedControl, prefixWantedControl);
+  }
 
+  convertCurrency(prefixInputedControl: string, prefixWantedControl: string): void {
     const inputedAmount = this.formGroup.get(`${prefixInputedControl}Amount`)!.value;
     const wantedCurrencyCode = this.formGroup.get(`${prefixWantedControl}CurrencyCode`)!.value;
     const inputedCurrencyCode = this.formGroup.get(`${prefixInputedControl}CurrencyCode`)!.value;

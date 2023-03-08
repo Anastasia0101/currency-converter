@@ -1,10 +1,10 @@
 <form [formGroup]="formGroup">
-  <input type="number" min="0" step="any" formControlName="giveAmount" (input)="onControlChanged(prefixesEnum.GIVE)"/>
-  <select name="" id="" formControlName="giveCurrencyCode" (change)="onControlChanged(prefixesEnum.GIVE)">
+  <input type="number" formControlName="giveAmount" (input)="onControlChanged(prefixesEnum.GIVE)"/>
+  <select formControlName="giveCurrencyCode" (change)="onControlChanged(prefixesEnum.GIVE)">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
   <input type="number" formControlName="takeAmount" (input)="onControlChanged(prefixesEnum.TAKE)"/>
-  <select name="" id="" formControlName="takeCurrencyCode" (change)="onControlChanged(prefixesEnum.TAKE)">
+  <select formControlName="takeCurrencyCode" (change)="onControlChanged(prefixesEnum.TAKE)">
     <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
   </select>
 </form>
