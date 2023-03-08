@@ -11,16 +11,13 @@ export class FormComponent {
   formGroup: FormGroup = this.formBuilder.group({
     giveAmount: [null, [Validators.required]],
     giveCurrencyCode: [null, [Validators.required]],
-    takeAmount: [null, [Validators.required]],
+    takeAmount: [0, [Validators.required]],
     takeCurrencyCode: [null, [Validators.required]]
   });
 
   currencies = Object.values(CurrencyEnum);
 
-
-  constructor(private formBuilder: FormBuilder) { }
-
-  onFormSubmit(): void {
-    console.log(this.formGroup.value);
-  }
+  constructor(
+    private formBuilder: FormBuilder,
+  ) { }
 }

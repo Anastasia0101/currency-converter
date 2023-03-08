@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
+import { CurrenciesService } from './services/currencies.service';
 
 import { AppComponent } from './app.component';
 import { InputComponent } from './components/UI/input/input.component';
@@ -12,14 +15,15 @@ import { FormComponent } from './components/form/form.component';
     AppComponent,
     InputComponent,
     SelectComponent,
-    FormComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [CurrenciesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
