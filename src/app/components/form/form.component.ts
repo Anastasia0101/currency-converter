@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyEnum } from 'src/app/enums/currency-enum';
 import { ControlsPrefixesEnum } from 'src/app/enums/controls-prefixes-enum';
 import { CurrenciesService } from 'src/app/services/currencies.service';
+import { valueNotEqualZeroValidator } from 'src/app/validators/value-not-equal-zero.validator';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,8 @@ export class FormComponent {
     giveAmount: [
       '', [
         Validators.required,
-        Validators.pattern(/^[0-9]+(\.[0-9]{1,2})?$/)
+        Validators.pattern(/^[0-9]+(\.[0-9]{1,2})?$/),
+        valueNotEqualZeroValidator()
       ]
     ],
     giveCurrencyCode: [
@@ -24,7 +26,8 @@ export class FormComponent {
     takeAmount: [
       '', [
         Validators.required,
-        Validators.pattern(/^[1-9]+(\.[0-9]{1,2})?$/)
+        Validators.pattern(/^[0-9]+(\.[0-9]{1,2})?$/),
+        valueNotEqualZeroValidator()
       ]
     ],
     takeCurrencyCode: [
