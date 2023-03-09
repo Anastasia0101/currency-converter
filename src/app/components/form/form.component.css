@@ -1,0 +1,41 @@
+.form {
+  height: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__field {
+  width: 70%;
+  max-width: 300px;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #c7c7c7;
+  border-radius: 5px;
+}
+
+.field__input {
+  width: 50%;
+  border: none;
+  border-right: 1px solid #808080;
+}
+
+.field__input:focus {
+  outline: none;
+}
+
+.field__select {
+  border: none;
+  padding: 3px 5px;
+  width: 50%;
+  text-align: right;
+}
+
+.field__select:focus {
+  outline: none;
+}
+
+.field__select:hover {
+  cursor: pointer;
+}
