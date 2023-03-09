@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { CurrencyResponseApi } from '../models/currency-response-api.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class CurrenciesService {
@@ -16,7 +17,7 @@ export class CurrenciesService {
     const requestParams = `?to=${wantedCurrency}&from=${inputedCurrency}&amount=${inputedAmount}`;
     const options = {
       headers: {
-        apikey: 'gW7VLceqBkWXqDqDak8KlwsAeuDcDFGp'
+        apikey: environment.keyApi
       }
     };
     return this.httpClient.get(url + requestParams, options).pipe(
