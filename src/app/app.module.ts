@@ -8,12 +8,14 @@ import { CurrenciesService } from './services/currencies.service';
 import { AppComponent } from './app.component';
 import { FormComponent } from './components/form/form.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ConverterPageComponent } from './views/converter-page/converter-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FormComponent,
-    HeaderComponent
+    HeaderComponent,
+    ConverterPageComponent
   ],
   imports: [
     BrowserModule,
