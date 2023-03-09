@@ -1,16 +1,17 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CurrencyEnum } from 'src/app/enums/currency-enum';
 import { ControlsPrefixesEnum } from 'src/app/enums/controls-prefixes-enum';
 import { CurrenciesService } from 'src/app/services/currencies.service';
 import { valueNotEqualZeroValidator } from 'src/app/validators/value-not-equal-zero.validator';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css']
 })
-export class FormComponent {
+export class FormComponent implements OnDestroy {
   formGroup: FormGroup = this.formBuilder.group({
     giveAmount: [
       '', [
@@ -37,6 +38,7 @@ export class FormComponent {
   });
   currencies = Object.values(CurrencyEnum);
   prefixesEnum = ControlsPrefixesEnum;
+  subscription$!: Subscription;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -54,12 +56,16 @@ export class FormComponent {
     const wantedCurrencyCode = this.formGroup.get(`${prefixWantedControl}CurrencyCode`)!.value;
     const inputedCurrencyCode = this.formGroup.get(`${prefixInputedControl}CurrencyCode`)!.value;
 
-    this.currenciesService.convertCurrencies(
+    this.subscription$ = this.currenciesService.convertCurrencies(
       wantedCurrencyCode,
       inputedCurrencyCode,
       inputedAmount
     ).subscribe(data => {
       this.formGroup.get(`${prefixWantedControl}Amount`)!.setValue(data);
     });
+  }
+
+  ngOnDestroy(): void {
+    this.subscription$.unsubscribe();
   }
 }

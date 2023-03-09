@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './converter-page.component.html',
   styleUrls: ['./converter-page.component.css']
 })
-export class ConverterPageComponent {
-
-}
+export class ConverterPageComponent { }
